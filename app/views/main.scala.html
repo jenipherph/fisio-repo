@@ -8,68 +8,131 @@
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/UAGM-logo-crop.png")">
         <script src="@routes.Assets.at("javascripts/jquery-2.2.0.min.js")" type="text/javascript"></script>
 
-
-    </head>
+        <link rel="stylesheet" type="text/css" href='@routes.Assets.at("bootstrap/css/bootstrap.css")' />
+        <link rel="stylesheet" type="text/css" href='@routes.Assets.at("stylesheets/main.css")' />
+        <script  type="text/javascript" src='@routes.Assets.at("bootstrap/js/bootstrap.js")'></script>
+        
     </head>
     <body>
-
-    <table border="1">
-        <tr>
-        <td><a href="/newPublication">New Publication</a></td>
-        <td><a href="/newAuthor">New Author</a></td>
-        <td><a href="/newSource">New Source</a></td>
-        <td><a href="/newKeyword">New Keyword</a></td>
-        <td><a href="/newProfessor">New Professor</a></td>
-        </tr>
-        <tr>
-        <td><a href="/publications">List All Publications</a></td>
-        <td><a href="/authors">List All Authors</a></td>
-        <td><a href="/sources">List All Sources</a></td>
-        <td><a href="/keywords">List All Keywords</a></td>
-        <td><a href="/professors">List All Professors</a></td>
-        </tr>
-        <tr>
-        <td><a href="/publicationsJSON">List All Publications (JSON)</a></td>
-        <td><a href="/authorsJSON">List All Authors (JSON)</a></td>
-        <td><a href="/sourcesJSON">List All Sources (JSON)</a></td>
-        <td><a href="/keywordsJSON">List All Keywords (JSON)</a></td>
-        <td><a href="/professorsJSON">List All Professors (JSON)</a></td>
-        </tr>
-        <tr>
-        <td>
-        <form method="GET" action="/publication">
-        Title: <input type="text" name="title"/>
-        <input type="submit" value="Search">
-        </form>
-        </td>
-        <td>
-        <form method="GET" action="/author">
-        Name: <input type="text" name="name"/>
-        <input type="submit" value="Search">
-        </form>
-        </td>
-        <td>
-        <form method="GET" action="/source">
-        Name: <input type="text" name="name"/>
-        <input type="submit" value="Search">
-        </form>
-        </td>
-        <td>
-        <form method="GET" action="/keyword">
-        Name: <input type="text" name="name"/>
-        <input type="submit" value="Search">
-        </form>
-        </td>
-         <td>
-        <form method="GET" action="/professor">
-        Name: <input type="text" name="firstName"/>
-        <input type="submit" value="Search">
-        </form>
-        </td>
-        </tr>
-    </table>
+      
+      <head>
+        
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">UAGM</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#" data-toggle="modal" data-target="#staticBackdrop">Admin <span class="sr-only" >(current)</span></a>
+               
+                
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Admin Pannel</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                          <div class="table-responsive">
+                            <table class="table" 
+                            <thead class="thead-dark">
+                              <tr>
+                               <!-- <th scope="col">Publications</th>
+                                <th scope="col">Authors</th>
+                                <th scope="col">Sources</th>
+                                <th scope="col">Keywords</th>-->
+                                <th scope="col">Professors</th>
+                                <th scope="col">Student</th>
+                              </tr>
+                            </thead>
+                                <tr>
+                               <!-- <td><a href="/newPublication">New Publication</a></td>
+                                <td><a href="/newAuthor">New Author</a></td>
+                                <td><a href="/newSource">New Source</a></td>
+                                <td><a href="/newKeyword">New Keyword</a></td>-->
+                                <td><a href="/newProfessor">New Professor</a></td>
+                                <td><a href="#">New Student</a></td>
+                                </tr>
+                                <tr>
+                               <!-- <td><a href="/publications">List All Publications</a></td>
+                                <td><a href="/authors">List All Authors</a></td>
+                                <td><a href="/sources">List All Sources</a></td>
+                                <td><a href="/keywords">List All Keywords</a></td>-->
+                                <td><a href="/professors">List All Professors</a></td>
+                                <td><a href="#">List All the Students</a></td>
+                                </tr>
+                                <tr>
+                               <!-- <td><a href="/publicationsJSON">List All Publications (JSON)</a></td>
+                                <td><a href="/authorsJSON">List All Authors (JSON)</a></td>
+                                <td><a href="/sourcesJSON">List All Sources (JSON)</a></td>
+                                <td><a href="/keywordsJSON">List All Keywords (JSON)</a></td>-->
+                                <td><a href="/professorsJSON">List All Professors (JSON)</a></td>
+                                <td><a href="#">List All Students (JSON)</a></td>
+                                </tr>
+                                <!--<tr>
+                                <td>
+                                <form method="GET" action="/publication">
+                                Title: <input type="text" name="title" class="form-control mr-sm-2" />
+                                <input type="submit" value="Search"  class="btn btn-primary">
+                                </form>
+                                </td>
+                                <td>
+                                <form method="GET" action="/author">
+                                Name: <input type="text" name="name" class="form-control mr-sm-2" />
+                                <input type="submit" value="Search" class="btn btn-primary">
+                                </form>
+                                </td>
+                                <td>
+                                <form method="GET" action="/source">
+                                Name: <input type="text" name="name" class="form-control mr-sm-2" />
+                                <input type="submit" value="Search" class="btn btn-primary">
+                                </form>
+                                </td>
+                                <td>
+                                <form method="GET" action="/keyword">
+                                Name: <input type="text" name="name" class="form-control mr-sm-2" />
+                                <input type="submit" value="Search" class="btn btn-primary">
+                                </form>
+                                </td>-->
+                                 <td>
+                                <form method="GET" action="/professor">
+                                Name: <input type="text" name="firstName" class="form-control mr-sm-2" />
+                                <input type="submit" value="Search" class="btn btn-primary">
+                                </form>
+                                </td>
+                                 <td>
+                                <form method="GET" action="#">
+                                Name: <input type="text" name="firstName" class="form-control mr-sm-2" />
+                                <input type="submit" value="Search" class="btn btn-primary">
+                                </form>
+                                </td>
+                                </tr>
+                            </table>
+                            </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+          </nav>
+      </head>
+    
+    <div class="container"> 
+    
     <hr>
-    @content
-    <br />
-    <div class="">
-      <h1 style="text-align: center">Welcome to UAGM Grade Center!</h1>
+      @content
+    </div>
+
+
+     
