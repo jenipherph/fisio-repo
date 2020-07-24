@@ -1,0 +1,12 @@
+@(professor: models.Professor)
+
+@main("Welcome to Fisio-Repo") {
+<script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
+
+<ul id="professors">
+    <li>ID: @professor.id</li>
+    <li>Name: @professor.firstName</li>
+    <li>Last Name: @professor.lastName</li>
+    <li>Email: @professor.professorEmail</li>
+</ul>
+}
