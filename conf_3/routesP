@@ -5,8 +5,6 @@
 # Home page
 GET     /                           controllers.PublicationController.index()
 
-#Verbo      URL                         Archivo ("End points")
-
 # Authors
 GET     /newAuthor                  controllers.AuthorController.index()
 POST    /author                     controllers.AuthorController.addAuthor()
@@ -14,14 +12,6 @@ GET     /author/:id                 controllers.AuthorController.getAuthor(id: L
 GET     /author                     controllers.AuthorController.searchAuthors(name: String)
 GET     /authors                    controllers.AuthorController.getAuthors()
 GET     /authorsJSON                controllers.AuthorController.getAuthorsJson()
-
-# Professor
-GET     /newProfessor                  controllers.ProfessorController.index()
-POST    /professor                     controllers.ProfessorController.addProfessor()
-GET     /professor/:id                 controllers.ProfessorController.getProfessor(id: String)
-GET     /professor                     controllers.ProfessorController.searchProfessors(name: String)
-GET     /professors                    controllers.ProfessorController.getProfessors()
-GET     /professorsJSON                controllers.ProfessorController.getProfessorJson()
 
 # Sources
 GET     /newSource                  controllers.SourceController.index()
