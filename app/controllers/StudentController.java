@@ -30,9 +30,9 @@ public class StudentController extends Controller {
     private final HttpExecutionContext ec;
     */
     private final FormFactory formFactory;
-    private final StudentRepository studentRepository; //Link to the ProfessorRepository
+    private final StudentRepository studentRepository; //Link to the StudentRepository
     private final HttpExecutionContext ec;
-   
+
     /*
     @Inject
     public AuthorController(FormFactory formFactory, AuthorRepository authorRepository, HttpExecutionContext ec) {
@@ -40,21 +40,21 @@ public class StudentController extends Controller {
         this.authorRepository = authorRepository;
         this.ec = ec;
     }*/
-    
+
     @Inject
-    public ProfessorController(FormFactory formFactory, ProfessorRepository professorRepository, HttpExecutionContext ec){
+    public StudentController(FormFactory formFactory, StudentRepository studentRepository, HttpExecutionContext ec){
         this.formFactory = formFactory;
-        this.professorRepository = professorRepository;
+        this.studentRepository = studentRepository;
         this.ec = ec;
     }
-    
+
     /*
     public Result index() {
         return ok(views.html.author.render());
     }*/
-    
+
      public Result index() {
-        return ok(views.html.professor.render());
+        return ok(views.html.student.render());
     }
 
     /*public CompletionStage<Result> getAuthor(Long id) {
@@ -63,23 +63,23 @@ public class StudentController extends Controller {
         }, ec.current());
     }*/
 
-    public CompletionStage<Result> getProfessor(String id) {
-        return professorRepository.get(id).thenApplyAsync(professorStream -> {
-            return ok(views.html.singleprofessor.render(professorStream.collect(Collectors.toList()).get(0)));
+    public CompletionStage<Result> getStudent(String id) {
+        return studentRepository.get(id).thenApplyAsync(studentStream -> {
+            return ok(views.html.singlestudent.render(studentStream.collect(Collectors.toList()).get(0)));
         }, ec.current());
     }
-    
+
     /*public CompletionStage<Result> addAuthor() { //Function when "POST /author"
         Author author = formFactory.form(Author.class).bindFromRequest().get();
         return authorRepository.add(author).thenApplyAsync(p -> {
             return redirect(routes.AuthorController.index());
         }, ec.current());
     }*/
-    
-    public CompletionStage<Result> addProfessor() { //Function when "POST /author"
-        Professor professor = formFactory.form(Professor.class).bindFromRequest().get();
-        return professorRepository.add(professor).thenApplyAsync(p -> {
-            return redirect(routes.ProfessorController.index());
+
+    public CompletionStage<Result> addStudent() { //Function when "POST /author"
+        Student student = formFactory.form(Student.class).bindFromRequest().get();
+        return studentRepository.add(student).thenApplyAsync(p -> {
+            return redirect(routes.StudentController.index());
         }, ec.current());
     }
 
@@ -89,9 +89,9 @@ public class StudentController extends Controller {
         }, ec.current());
     }*/
 
-    public CompletionStage<Result> getProfessorJson() { // Function when "GET /authorsJSON"
-        return professorRepository.list().thenApplyAsync(professorStream -> {
-            return ok(toJson(professorStream.collect(Collectors.toList())));
+    public CompletionStage<Result> getStudentJson() { // Function when "GET /authorsJSON"
+        return studentRepository.list().thenApplyAsync(studentStream -> {
+            return ok(toJson(studentStream.collect(Collectors.toList())));
         }, ec.current());
     }
 
@@ -100,10 +100,10 @@ public class StudentController extends Controller {
             return ok(views.html.listauthors.render(authorStream.collect(Collectors.toList())));
         }, ec.current());
     }*/
-    
-    public CompletionStage<Result> getProfessors() {
-        return professorRepository.list().thenApplyAsync(professorStream -> {
-            return ok(views.html.listprofessors.render(professorStream.collect(Collectors.toList())));
+
+    public CompletionStage<Result> getStudents() {
+        return studentRepository.list().thenApplyAsync(studentStream -> {
+            return ok(views.html.liststudents.render(studentStream.collect(Collectors.toList())));
         }, ec.current());
     }
 
@@ -112,12 +112,12 @@ public class StudentController extends Controller {
             return ok(views.html.listauthors.render(authorStream.collect(Collectors.toList())));
         }, ec.current());
     }*/
-    
-    public CompletionStage<Result> searchProfessors(String name) { // Function when "GET /professor"
-        return professorRepository.searchByName(name).thenApplyAsync(professorStream -> {
-            return ok(views.html.listprofessors.render(professorStream.collect(Collectors.toList())));
+
+    public CompletionStage<Result> searchStudents(String name) { // Function when "GET /student"
+        return studentRepository.searchByName(name).thenApplyAsync(studentStream -> {
+            return ok(views.html.liststudents.render(studentStream.collect(Collectors.toList())));
         }, ec.current());
     }
-    
-    
+
+
 }

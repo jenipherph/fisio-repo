@@ -2,10 +2,10 @@
   Author: Dr. Rodrigo Garcia Carmona
   Code Editor: Jenipher Gonzalez Aponte
   Course: MAIS 810
-  
-  File: ProfessorRepository.java 
+
+  File: StudentRepository.java
   Functions:
-   -> add(Professor professor);
+   -> add(Student student);
    -> list();
    -> get(String id);
    -> searchByName(String name);
@@ -20,22 +20,22 @@ import java.util.stream.Stream;
 
 /**
  * This interface provides a non-blocking API for possibly blocking operations.
- * 
- * Interface -> a contract that must be followed through 
+ *
+ * Interface -> a contract that must be followed through
  */
-@ImplementedBy(JPAProfessorRepository.class)
-public interface ProfessorRepository { //The things that could be done to Authors
+@ImplementedBy(JPAStudentRepository.class)
+public interface StudentRepository { //The things that could be done to Authors
 
-    
-    CompletionStage<Professor> add(Professor professor); //Add a new Professor
-    
-    CompletionStage<Stream<Professor>> list(); // Show all the Professors
-    
-    CompletionStage<Stream<Professor>> get(String id); //Shows a single Professor by ID
 
-    CompletionStage<Stream<Professor>> searchByName(String name); // Shows Professor based on the Name
+    CompletionStage<Student> add(Student student); //Add a new Student
 
-    
+    CompletionStage<Stream<Student>> list(); // Show all the Students
+
+    CompletionStage<Stream<Student>> get(String id); //Shows a single Student by ID
+
+    CompletionStage<Stream<Student>> searchByName(String name); // Shows Student based on the Name
+
+
 }
 
  /*CompletionStage<Author> add(Author author); // Add a new Author

@@ -2,10 +2,10 @@
   Author: Dr. Rodrigo Garcia Carmona
   Code Editor: Jenipher Gonzalez Aponte
   Course: MAIS 810
-  
-  File: Student.java 
+
+  File: Student.java
   Functions:
-   -> 
+   ->
  */
 
 package models;
@@ -19,22 +19,22 @@ import java.util.Set;
 @Entity
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Student { //Class Name: Professor
+public class Student { //Class Name: Student
 
     @Id //To determine that is the Primary Key
    // @GeneratedValue(strategy=GenerationType.AUTO)
    //id -> PrimaryKey
     public String id; //The ID_PROFESSOR is added by the user
-    //Professor  Attribute
-    public String firstName; // firstName -> contains the first name of the professor
-    public String lastName; // lastName -> contains the last name of the professor
-    public String studentEmail; // professorEmail -> contains the email of the professor
+    //Student  Attribute
+    public String firstName; // firstName -> contains the first name of the student
+    public String lastName; // lastName -> contains the last name of the student
+    public String studentEmail; // studentEmail -> contains the email of the student
 
 
-    //@OneToMany(mappedBy="professors")
+    //@OneToMany(mappedBy="students")
     //@JsonIgnore
-    
-   // @ManyToMany(mappedBy="authors") 
+
+   // @ManyToMany(mappedBy="authors")
     //@JsonIgnore
     //public List<Publication> publications; //List of publications called publications
 }
