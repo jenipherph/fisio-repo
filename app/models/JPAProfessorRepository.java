@@ -98,7 +98,7 @@ public class JPAProfessorRepository implements ProfessorRepository{
     }*/
     
     private Stream<Professor> get(EntityManager em, String id) {
-        List<Professor> professor = em.createQuery("select a from Professor a where id=" + id, Professor.class).getResultList();
+        List<Professor> professor = em.createQuery("select a from Professor a where id='" + id + "'",  Professor.class).getResultList();
         return professor.stream();
     }
 
@@ -108,7 +108,7 @@ public class JPAProfessorRepository implements ProfessorRepository{
     }*/
     
     private Stream<Professor> searchByName(EntityManager em, String name) {
-        List<Professor> professor = em.createQuery("select a from Professor a where a.name LIKE '%" + name + "%'", Professor.class).getResultList();
+        List<Professor> professor = em.createQuery("select a from Professor a where a.firstName LIKE '%" + name + "%'", Professor.class).getResultList();
         return professor.stream();
     }
 }

@@ -108,7 +108,7 @@ public class JPAStudentRepository implements StudentRepository{
     }*/
 
     private Stream<Student> searchByName(EntityManager em, String name) {
-        List<Student> student = em.createQuery("select a from Student a where a.name LIKE '%" + name + "%'", Student.class).getResultList();
+        List<Student> student = em.createQuery("select a from Student a where a.firstName LIKE '%" + name + "%'", Student.class).getResultList();
         return student.stream();
     }
 }
