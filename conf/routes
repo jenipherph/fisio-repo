@@ -23,6 +23,14 @@ GET     /professor                     controllers.ProfessorController.searchPro
 GET     /professors                    controllers.ProfessorController.getProfessors()
 GET     /professorsJSON                controllers.ProfessorController.getProfessorJson()
 
+# Student
+GET     /newStudent                 controllers.StudentController.index()
+POST    /student                    controllers.StudentController.addStudent()
+GET     /student/:id                 controllers.StudentController.getStudent(id: String)
+GET     /student                    controllers.StudentController.searchStudents(name: String)
+GET     /students                   controllers.StudentController.getStudents()
+GET     /studentsJSON                controllers.StudentController.getStudentJson()
+
 # Sources
 GET     /newSource                  controllers.SourceController.index()
 POST    /source                     controllers.SourceController.addSource()

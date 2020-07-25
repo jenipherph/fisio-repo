@@ -1,0 +1,19 @@
+@()
+
+@main("New Student Form") {
+<script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
+<div class="container">
+<h1 class="titleHeaders">Admin Area</h1>
+<hr>
+<form method="POST" action="@routes.StudentController.addStudent()" class="form-group">
+    @helper.CSRF.formField
+    Student ID: <input type="text" name="id" class="form-control" placeholder="i.e. 122345678"/><br />
+    First Name: <input type="text" name="firstName" class="form-control" placeholder="i.e. John"/><br />
+    Last Name: <input type="text" name="lastName" class="form-control" placeholder="i.e. Doe"/><br />
+    Email: <input type="text" name="studentEmail" class="form-control" placeholder="i.e. jd&#64;email.uagm.edu"/><br />
+    <button class="btn btn-primary">Add Student</button>
+</form>
+</div>
+
+
+}

@@ -47,12 +47,12 @@ public class StudentController extends Controller {
         this.studentRepository = studentRepository;
         this.ec = ec;
     }
-
+    
     /*
     public Result index() {
         return ok(views.html.author.render());
     }*/
-
+    
      public Result index() {
         return ok(views.html.student.render());
     }
@@ -68,14 +68,14 @@ public class StudentController extends Controller {
             return ok(views.html.singlestudent.render(studentStream.collect(Collectors.toList()).get(0)));
         }, ec.current());
     }
-
+    
     /*public CompletionStage<Result> addAuthor() { //Function when "POST /author"
         Author author = formFactory.form(Author.class).bindFromRequest().get();
         return authorRepository.add(author).thenApplyAsync(p -> {
             return redirect(routes.AuthorController.index());
         }, ec.current());
     }*/
-
+    
     public CompletionStage<Result> addStudent() { //Function when "POST /author"
         Student student = formFactory.form(Student.class).bindFromRequest().get();
         return studentRepository.add(student).thenApplyAsync(p -> {
@@ -100,7 +100,7 @@ public class StudentController extends Controller {
             return ok(views.html.listauthors.render(authorStream.collect(Collectors.toList())));
         }, ec.current());
     }*/
-
+    
     public CompletionStage<Result> getStudents() {
         return studentRepository.list().thenApplyAsync(studentStream -> {
             return ok(views.html.liststudents.render(studentStream.collect(Collectors.toList())));
@@ -112,12 +112,12 @@ public class StudentController extends Controller {
             return ok(views.html.listauthors.render(authorStream.collect(Collectors.toList())));
         }, ec.current());
     }*/
-
-    public CompletionStage<Result> searchStudents(String name) { // Function when "GET /student"
+    
+    public CompletionStage<Result> searchStudents(String name) { // Function when "GET /professor"
         return studentRepository.searchByName(name).thenApplyAsync(studentStream -> {
             return ok(views.html.liststudents.render(studentStream.collect(Collectors.toList())));
         }, ec.current());
     }
-
-
+    
+    
 }

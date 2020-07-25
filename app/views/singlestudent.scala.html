@@ -1,0 +1,12 @@
+@(student: models.Student)
+
+@main("Students Information") {
+<script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
+
+<ul id="students">
+    <li>ID: @student.id</li>
+    <li>Name: @student.firstName</li>
+    <li>Last Name: @student.lastName</li>
+    <li>Email: @student.studentEmail</li>
+</ul>
+}

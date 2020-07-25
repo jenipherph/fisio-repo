@@ -1,0 +1,13 @@
+@(students: List[models.Student])
+
+@main("Welcome to Fisio-Repo") {
+<script type='text/javascript' src='@routes.Assets.at("javascripts/index.js")'></script>
+
+<ul id="students">
+    @for(student <- students) {
+    <li><a href="./student/@student.id">@student.firstName</a></li>
+    
+    }
+</ul>
+
+}

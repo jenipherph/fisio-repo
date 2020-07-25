@@ -86,7 +86,8 @@ public class PublicationController extends Controller {
             return redirect(routes.PublicationController.getPublications());
         }, ec.current());
     }
-
+    
+   
     public CompletionStage<Result> addSource(Long id, Long sid) {
         return publicationRepository.addSource(id, sid).thenApplyAsync(p -> {
             return redirect(routes.PublicationController.getPublications());

@@ -32,9 +32,9 @@ public class Professor { //Class Name: Professor
 
 
     //@OneToMany(mappedBy="professors")
-    //@JsonIgnore
+   // @JsonIgnore
     
-   // @ManyToMany(mappedBy="authors") 
+   //@ManyToMany(mappedBy="authors") 
     //@JsonIgnore
     //public List<Publication> publications; //List of publications called publications
 }

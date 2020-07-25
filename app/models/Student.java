@@ -31,10 +31,10 @@ public class Student { //Class Name: Student
     public String studentEmail; // studentEmail -> contains the email of the student
 
 
-    //@OneToMany(mappedBy="students")
-    //@JsonIgnore
+  //  @OneToMany(mappedBy="students")
+  //  @JsonIgnore
 
    // @ManyToMany(mappedBy="authors")
     //@JsonIgnore
-    //public List<Publication> publications; //List of publications called publications
+   //public List<Publication> publications; //List of publications called publications
 }
